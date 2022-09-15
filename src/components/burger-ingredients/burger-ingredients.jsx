@@ -10,7 +10,7 @@ import IngredientDetails from "../ingredient-details/ingredient-details.jsx";
 export default function BurgerIngredients(props) {
   const [current, setCurrent] = React.useState("one");
   const [modalKind, setIsOpened] = React.useState({
-    isOpened: false,
+    isOpen: false,
     ingredientDetails: {},
   });
 
@@ -58,7 +58,7 @@ export default function BurgerIngredients(props) {
                       ingredient={ingredient}
                       onClick={() => {
                         setIsOpened({
-                          isOpened: true,
+                          isOpen: true,
                           ingredientDetails: ingredient,
                         });
                       }}
@@ -81,7 +81,7 @@ export default function BurgerIngredients(props) {
                       ingredient={ingredient}
                       onClick={() => {
                         setIsOpened({
-                          isOpened: true,
+                          isOpen: true,
                           ingredientDetails: ingredient,
                         });
                       }}
@@ -104,7 +104,7 @@ export default function BurgerIngredients(props) {
                       ingredient={ingredient}
                       onClick={() => {
                         setIsOpened({
-                          isOpened: true,
+                          isOpen: true,
                           ingredientDetails: ingredient,
                         });
                       }}
@@ -117,9 +117,9 @@ export default function BurgerIngredients(props) {
       </div>
       <Modal
         onClose={() => {
-          setIsOpened({ isOpened: false, ingredientDetails: {} });
+          setIsOpened({ isOpen: false, ingredientDetails: {} });
         }}
-        isOpened={modalKind.isOpened}
+        isOpen={modalKind.isOpen}
       >
         <IngredientDetails data={modalKind.ingredientDetails} />
       </Modal>

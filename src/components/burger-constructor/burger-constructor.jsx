@@ -13,11 +13,12 @@ import icon from "../../images/done.png";
 import ingredientType from "../../utils/types.js";
 
 export default function BurgerConstructor(props) {
-  const [isOpened, setIsOpened] = React.useState(false);
+  const [isOpen, setIsOpened] = React.useState(false);
 
   return (
     <section className={`${styles.section} mt-25 pl-4 pr-4`}>
       <div className={`${styles.constructorEl__container} pl-8`}>
+        
         <ConstructorElement
           type="top"
           isLocked={true}
@@ -28,56 +29,22 @@ export default function BurgerConstructor(props) {
       </div>
       <div className={`${styles.constructorEl__container_main} mt-4`}>
         <ul className={styles.constructorEl__list}>
-          <li className={`${styles.constructorEl} mb-4`}>
-            <button className={styles.constructor__dragBtn}>
-              <DragIcon type="primary" />
-            </button>
-            <ConstructorElement
-              text={props.data[5].name}
-              price={props.data[5].price}
-              thumbnail={props.data[5].image_mobile}
-            />
-          </li>
-          <li className={`${styles.constructorEl} mb-4`}>
-            <button className={styles.constructor__dragBtn}>
-              <DragIcon type="primary" />
-            </button>
-            <ConstructorElement
-              text={props.data[4].name}
-              price={props.data[4].price}
-              thumbnail={props.data[4].image_mobile}
-            />
-          </li>
-          <li className={`${styles.constructorEl} mb-4`}>
-            <button className={styles.constructor__dragBtn}>
-              <DragIcon type="primary" />
-            </button>
-            <ConstructorElement
-              text={props.data[7].name}
-              price={props.data[7].price}
-              thumbnail={props.data[7].image_mobile}
-            />
-          </li>
-          <li className={`${styles.constructorEl} mb-4`}>
-            <button className={styles.constructor__dragBtn}>
-              <DragIcon type="primary" />
-            </button>
-            <ConstructorElement
-              text={props.data[8].name}
-              price={props.data[8].price}
-              thumbnail={props.data[8].image_mobile}
-            />
-          </li>
-          <li className={`${styles.constructorEl} mb-4`}>
-            <button className={styles.constructor__dragBtn}>
-              <DragIcon type="primary" />
-            </button>
-            <ConstructorElement
-              text={props.data[8].name}
-              price={props.data[8].price}
-              thumbnail={props.data[8].image_mobile}
-            />
-          </li>
+          {
+            props.data.map(
+              (ingridient) =>(
+              <li className={`${styles.constructorEl} mb-4`} key={ingridient._id}>
+                <button className={styles.constructor__dragBtn}>
+                  <DragIcon type="primary" />
+                </button>
+                <ConstructorElement
+                  text={ingridient.name}
+                  price={ingridient.price}
+                  thumbnail={ingridient.image_mobile}
+                />
+              </li>
+              ),
+            )
+          }
         </ul>
       </div>
       <div className={`${styles.constructorEl__container} pl-8`}>
@@ -116,7 +83,7 @@ export default function BurgerConstructor(props) {
         onClose={() => {
           setIsOpened(false);
         }}
-        isOpened={isOpened}
+        isOpen={isOpen}
       >
         {" "}
         <OrderDetails

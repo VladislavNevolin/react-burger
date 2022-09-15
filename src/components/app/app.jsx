@@ -6,9 +6,9 @@ import BurgerConstructor from "../burger-constructor/burger-constructor.jsx";
 import API from "../../utils/constants.js";
 
 export default function App() {
-  const [ingredients, setData] = React.useState([]);
+  const [ingredients, setData] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const getData = async () => {
       try {
         const res = await fetch(API);

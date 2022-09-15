@@ -5,22 +5,27 @@ import styles from "./modal.module.css";
 import { CloseIcon } from "@ya.praktikum/react-developer-burger-ui-components";
 import ModalOverlay from "../modal-overlay/modal-overlay.jsx";
 
+
+
+
 export default function Modal(props) {
   React.useEffect(() => {
-    const keyHandler = (evt) => {
+    function keyHandler (evt) {
       if (evt.key === "Escape") {
         props.onClose();
       }
     };
-    if (props.isOpened) {
+    if (props.isOpen) {
+      
       document.addEventListener("keydown", keyHandler);
       return () => {
         document.removeEventListener("keydown", keyHandler);
       };
     }
-  }, [props.isOpened]);
+  }, [props.isOpen]);
 
-  if (!props.isOpened) {
+  if (!props.isOpen) {
+    
     return null;
   }
 
