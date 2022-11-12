@@ -1,6 +1,6 @@
 import BurgerIngredients from '../ingredients/ingredients';
 import mainStyles from './main.module.css';
-import BurgerConsrtuctor from "../constructor/contructor";
+import BurgerConsrtuctor from "../constructor/constructor";
 import { TotalPriceContext, CurrItemContext } from '../../services/appContext';
 import { useState } from 'react';
 

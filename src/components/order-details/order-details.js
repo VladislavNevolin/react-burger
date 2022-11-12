@@ -9,9 +9,9 @@ export default function OrderDetails() {
     const { chosenItems } = useContext(ChosenItemsContext)
     const data = chosenItems.map((el) => el._id);
 
-    useEffect((data) => {
+    useEffect(() => {
         getOrderNumber(data, setNumber)
-    }, [data])
+    }, [])
 
     return (
         <>
